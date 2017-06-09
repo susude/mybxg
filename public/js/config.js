@@ -3,9 +3,14 @@ requirejs.config({
     paths:{
         jquery:'jquery/jquery.min',
         bootstrap:'bootstrap/js/bootstrap.min',
-        common:'../js/common',
         cookie : 'jquery-cookie/jquery.cookie',
-        login:'../js/login'
+        template:'artTemplate/template-web',
+        nprogress:'nprogress/nprogress',
+        common:'../js/common',
+        util:'../js/util',
+        index:'../js/index',
+        login:'../js/login',
+        tealist:'../js/teacher-list'
     },
     shim:{//兼容非标准模块
         bootstrap:{

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="template-web.js"></script>
+    <script type="text/template" id="testTpl">
+    <div>
+        <h3>{{title}}</h3>
+        <ul>
+            {{each list}}
+                <li>{{$index}}----{{$value}}</li>
+            {{/each}}
+        </ul>
+    </div>
+    </script>
+</head>
+<body>
+    <div id="container">
+        
+    </div>
+    <script type="text/javascript">
+    var data = {
+        title : 'fruit',
+        list : ['apple','orange','banana']
+    }
+    var html = template('testTpl',data);
+    $('#container').html(html);
+
+    </script>
+</body>
+</html>

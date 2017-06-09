@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="template-web.js"></script>
+</head>
+<body>
+    <div id="container">
+        
+    </div>
+    <script type="text/javascript">
+    
+    var tpl = '<div>'
+    + '{{if flag}}'
+    + '    <h3>{{title}}</h3>'
+    + '    <ul>'
+    + '        {{each list}}'
+    + '            <li>{{$index}}----{{$value.englishName}}====={{$value.chineseName}}</li>'
+    + '        {{/each}}'
+    + '    </ul>'
+    + '{{else}}'
+    + '    <div>没有数据</div>'
+    + '{{/if}}'
+    + '</div>';
+    var data = {
+        flag : true,
+        title : 'fruit',
+        list : [{
+            englishName : 'pineapple',
+            chineseName : '凤梨'
+        },{
+            englishName : 'mongo',
+            chineseName : '芒果'
+        },{
+            englishName : 'banana',
+            chineseName : '香蕉'
+        }]
+    }
+    // var render = template.compile(tpl);
+    // var html = render(data);
+
+    var html = template.render(tpl,data);
+    $('#container').html(html);
+
+    </script>
+</body>
+</html>
