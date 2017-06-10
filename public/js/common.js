@@ -27,8 +27,13 @@ define(['jquery','nprogress','template','cookie'],function($,nprogress,template)
     var loginInfo = $.cookie('loginInfo') && JSON.parse($.cookie('loginInfo'));
     if(loginInfo){
         // 渲染页面
-        $('.aside .profile').find('img').attr('src',loginInfo.tc_avatar);
-        $('.aside .profile').find('h4').text(loginInfo.tc_name);
+        // $('.aside .profile').find('img').attr('src',loginInfo.tc_avatar);
+        // $('.aside .profile').find('h4').text(loginInfo.tc_name);
+        // <!-- 头像 -->
+      var loginTpl='<div class="avatar img-circle"><img src="{{tc_avatar}}"></div><h4>{{tc_name}}</h4>';
+      var html=template.render(loginTpl,loginInfo);
+      console.log(html);
+      $('#teacherTpl').html(html);
     }
 
     $(document).ajaxStart(function(){
@@ -37,7 +42,7 @@ define(['jquery','nprogress','template','cookie'],function($,nprogress,template)
     });
     $(document).ajaxStop(function(){
       //隐藏遮罩层
-       $('.overlay').hide(300);
+       $('.overlay').hide();
     })
 
     // 进度条设置
